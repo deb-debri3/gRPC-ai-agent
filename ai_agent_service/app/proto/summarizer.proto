@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+// it define the namespace similar to python packages and node modules
+package summarizer;
+
+
+// here comes the important part
+// first define the request and response of the function or method of what we have or what we want to share between servers
+// - message here is just a data model or let's say schema but in a proto syntax
+message SummarizerRequest{
+  string text =1;
+}
+
+message SummarizerResponse{
+  string summary = 1;
+}
+
+message CalculateRequest {
+  int32 a = 1;
+  int32 b = 2;
+  int32 c = 3;
+  string operation = 4; //add or multiply
+}
+
+message CalculateResponse {
+  int32 result = 1;
+}
+
+//service defination always remains one and defines the gRPC service
+// ig similar to making the instace of service in the class for DI
+service SummarizerService {
+  rpc Summarize (SummarizerRequest) returns (SummarizerResponse);
+  rpc Calculate (CalculateResponse) returns (CalculateResponse);
+}
+
+

@@ -1,0 +1,1 @@
+from .summarizer_schema import SummarizerRequestSchema, SummarizerResponseSchema
