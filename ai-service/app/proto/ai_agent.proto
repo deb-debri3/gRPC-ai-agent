@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+// it's like namespace -> organizanes services to avoid collisions
+package ai_agent;
+
+//Request message
+message SummarizeRequest{
+  string text = 1;
+  int32 line = 2;
+}
+
+//Response message
+message SummarizeResponse{
+  string text = 1;
+}
+
+//service defination
+service Summarizer {
+  rpc Summarize (SummarizeRequest) returns (SummarizeResponse);
+}
+
